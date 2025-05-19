@@ -7,9 +7,9 @@ import { useSearchParams } from "react-router-dom"
 const Reports = () => {
     const [searchParams] = useSearchParams()
 
-    const {data: pendingReportData, loading: pendingReportLoading, error: pendingReportError} = useFetch("http://localhost:8000/report/pending", searchParams)
-    const {data: closedTasksData, loading: closedTasksLoading, error: closedTasksError} = useFetch("http://localhost:8000/report/closed-tasks", searchParams)
-    const {data: lastWeekReport, loading: lastWeekReportLoading, error: lastWeekReportError} = useFetch("http://localhost:8000/report/last-week", searchParams)
+    const {data: pendingReportData, loading: pendingReportLoading, error: pendingReportError} = useFetch("https://workasana-project-server.vercel.app/report/pending", searchParams)
+    const {data: closedTasksData, loading: closedTasksLoading, error: closedTasksError} = useFetch("https://workasana-project-server.vercel.app/report/closed-tasks", searchParams)
+    const {data: lastWeekReport, loading: lastWeekReportLoading, error: lastWeekReportError} = useFetch("https://workasana-project-server.vercel.app/report/last-week", searchParams)
     
     return (
         <div className='d-flex'>

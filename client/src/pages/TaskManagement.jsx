@@ -33,8 +33,7 @@ export const statuses = ["To Do", "In Progress", "Completed", "Blocked"]
       team: searchParams.get('team') || ''
   })
 
-console.log(searchParams)
-    const {data: tasks, loading, error} = useFetch("http://localhost:8000/tasks", searchParams)
+    const {data: tasks, loading, error} = useFetch("https://workasana-project-server.vercel.app/tasks", searchParams)
 
     useEffect(() => {
           dispatch(fetchProjects())
@@ -42,8 +41,6 @@ console.log(searchParams)
           dispatch(fetchTeams())
           dispatch(fetchTags())
     }, [])
-
-    console.log(tasks)
 
 
     useEffect(() => {

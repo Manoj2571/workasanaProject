@@ -7,6 +7,7 @@ import { fetchProjects } from "../../features/projects/projectsSlice";
 import { fetchTags } from "../../features/tags/tagsSlice";
 import { fetchTeams } from "../../features/teams/teamsSlice";
 import { fetchTasks } from "../../features/tasks/tasksSlice";
+import toast from "react-hot-toast";
 
 
 const ProtectedRoute = ({ children }) => {
@@ -21,7 +22,7 @@ const ProtectedRoute = ({ children }) => {
       if (!isUserLoggedIn) {
         if(token) {
             try {
-          const response = await axios.get("http://localhost:8000/auth/me", {
+          const response = await axios.get("https://workasana-project-server.vercel.app/auth/me", {
             headers: {
                 Authorization: `Bearer ${token}`
             }
@@ -38,7 +39,7 @@ const ProtectedRoute = ({ children }) => {
         ])
         
         } catch (error) {
-          console.error("Token validation failed:", error);
+          toast.error("An unknown error occured, please login")
         } finally {
           setCheckingToken(false);
         }

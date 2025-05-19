@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const fetchTasks = createAsyncThunk("/tasks/fetchtasks", async () => {
-    const response = await axios.get("http://localhost:8000/tasks")
+    const response = await axios.get("https://workasana-project-server.vercel.app/tasks")
     return response.data
 })
 
@@ -41,7 +41,7 @@ export const {addNewTask, updateTaskStatus} = tasksSlice.actions
 
 export const addNewTaskAsync = createAsyncThunk("/tasks/addNewTask", async (taskData, thunkAPI) => {
     try {
-        const response = await axios.post("http://localhost:8000/tasks", taskData)
+        const response = await axios.post("https://workasana-project-server.vercel.app/tasks", taskData)
 
         thunkAPI.dispatch(addNewTask(response.data?.task))
 
@@ -56,7 +56,7 @@ export const updateTaskStatusAsync = createAsyncThunk("/tasks/updateTask", async
     const {taskId, status} = taskData
 
     try {
-        const response = await axios.post(`http://localhost:8000/tasks/${taskId}`, {status})
+        const response = await axios.post(`https://workasana-project-server.vercel.app/tasks/${taskId}`, {status})
 
         thunkAPI.dispatch(updateTaskStatus(response.data?.task))
 

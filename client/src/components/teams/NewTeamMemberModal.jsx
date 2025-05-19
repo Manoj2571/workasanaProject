@@ -19,7 +19,6 @@ const NewTeamMemberModal = ({team}) => {
     try {
       e.preventDefault()
       const response = await dispatch(addNewTeamMemberAsync({teamId: team._id, member: member._id})).unwrap()
-      console.log(response)
       toast.success(response)
       setMember({})
       const modalInstance = Modal.getInstance(document.getElementById('addNewMember'))

@@ -9,7 +9,7 @@ const ProjectView = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const {projects}  = useSelector(state => state.projects) 
 
-    const {data: filteredProjects, loading, error} = useFetch("http://localhost:8000/projects", searchParams)
+    const {data: filteredProjects, loading, error} = useFetch("https://workasana-project-server.vercel.app/projects", searchParams)
 
     return (
       <>

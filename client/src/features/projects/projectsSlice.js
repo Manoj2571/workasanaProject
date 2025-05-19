@@ -3,9 +3,10 @@ import axios from "axios"
 
 
 export const fetchProjects = createAsyncThunk("/projects/fetchProjects", async () => {
-    const response = await axios.get("http://localhost:8000/projects")
+    const response = await axios.get("https://workasana-project-server.vercel.app/projects")
     return response.data
 })
+
 
 
 const projectsSlice = createSlice({
@@ -39,7 +40,7 @@ const {addNewProject} = projectsSlice.actions
 export const addNewProjectAsync = createAsyncThunk("/projects/addProject", async (newProjectData, thunkAPI) => {
 
     try {
-        const response = await axios.post("http://localhost:8000/projects", newProjectData)
+        const response = await axios.post("https://workasana-project-server.vercel.app/projects", newProjectData)
 
         thunkAPI.dispatch(addNewProject(response.data?.project))
 

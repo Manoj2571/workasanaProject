@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const fetchTeams = createAsyncThunk("/teams/fetchTeams", async () => {
-    const response = await axios.get("http://localhost:8000/teams")
+    const response = await axios.get("https://workasana-project-server.vercel.app/teams")
     return response.data
 })
 
@@ -41,7 +41,7 @@ export const {addNewTeam, updateTeam} = teamsSlice.actions
 
 export const addNewTeamAsync = createAsyncThunk("/teams/addNewTeam", async (teamData, thunkAPI) => {
     try {
-        const response = await axios.post("http://localhost:8000/teams", teamData)
+        const response = await axios.post("https://workasana-project-server.vercel.app/teams", teamData)
 
         thunkAPI.dispatch(addNewTeam(response.data.team))
 
@@ -53,7 +53,7 @@ export const addNewTeamAsync = createAsyncThunk("/teams/addNewTeam", async (team
 
 export const addNewTeamMemberAsync = createAsyncThunk("/teams/addNewTeamMember", async (memberData, thunkAPI) => {
     try {
-        const response = await axios.post(`http://localhost:8000/teams/${memberData.teamId}/member`, {member: memberData.member})
+        const response = await axios.post(`https://workasana-project-server.vercel.app/teams/${memberData.teamId}/member`, {member: memberData.member})
 
         thunkAPI.dispatch(updateTeam(response.data.team))
 

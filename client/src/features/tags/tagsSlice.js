@@ -3,7 +3,7 @@ import axios from "axios"
 
 
 export const fetchTags = createAsyncThunk("/tags/fetchTags", async () => {
-    const response = await axios.get("http://localhost:8000/tags")
+    const response = await axios.get("https://workasana-project-server.vercel.app/tags")
     return response.data
 })
 
