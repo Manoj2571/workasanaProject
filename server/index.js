@@ -12,6 +12,8 @@ const jwt = require('jsonwebtoken')
 
 const app = express()
 
+const port = process.env.PORT
+
 const corsOptions = {
     origin: "*",
     credentials: true,
@@ -23,7 +25,7 @@ app.use(express.json())
 
 initialiseDatabase()
 
-const port = process.env.PORT
+
 const JWT_SECRET = "workasnaFpAssignment"
 
 app.listen(port, () => {
@@ -65,7 +67,6 @@ app.post("/auth/login", async (req, res) => {
         const {email, password} = req.body
       
         const existingUser = await User.findOne({email}).select('+password')
-
 
         if(!existingUser) {
            return res.status(400).json({message: "Invalid email."})
