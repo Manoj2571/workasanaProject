@@ -1,0 +1,19 @@
+.sidebar {
+  height: 100vh;
+  position: sticky;
+  top: 0%;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+.bg-indigo {
+  background-color: #e0cffc !important;
+}
+
+
+.text-indigo {
+  color: #6610f2 !important;
+}
+
