@@ -48,47 +48,16 @@ const ProjectsSection = () => {
                   {getStatus(project.name, tasks)}
                 </span>
                 <h5 className="card-title fw-bold">{project.name}</h5>
-                <p className="text-muted small fst-normal">
+                <p className="text-muted small fst-normal text-truncate">
                   {project.description}
                 </p>
               </div>
             </div>)}
-            {/* <div className="col-md-4 mb-3">
-            <div className="card p-3 bg-light border-0">
-                <span className="badge bg-warning-subtle text-warning text-center mt-2 mb-3" style={{minWidth: "fit-content", width: "28%"}}>
-                  In Progress
-                </span>
-                <h5 className="card-title fw-bold">Create Moodboard</h5>
-                <p className="text-muted small fst-normal">
-                  This project centers around compiling a digital moodboard to set the visual
-                  direction and tone for a new brand identity. The moodboard will showcase a curated selection of images, color...
-                </p>
-              </div>
-            </div>
-            <div className="col-md-4 mb-3">
-            <div className="card p-3 bg-light border-0">
-                <span className="badge bg-success-subtle text-success text-center mt-2 mb-3" style={{minWidth: "fit-content", width: "28%"}}>
-                  Completed
-                </span>
-                <h5 className="card-title fw-bold">Create Moodboard</h5>
-                <p className="text-muted small fst-normal">
-                  This project centers around compiling a digital moodboard to set the visual
-                  direction and tone for a new brand identity. The moodboard will showcase a curated selection of images, color...
-                </p>
-              </div>
-            </div>
-            <div className="col-md-4 mb-3">
-            <div className="card p-3 bg-light border-0">
-                <span className="badge bg-success-subtle text-success text-center mt-2 mb-3" style={{minWidth: "fit-content", width: "28%"}}>
-                  Completed
-                </span>
-                <h5 className="card-title fw-bold">Create Moodboard</h5>
-                <p className="text-muted small fst-normal">
-                  This project centers around compiling a digital moodboard to set the visual
-                  direction and tone for a new brand identity. The moodboard will showcase a curated selection of images, color...
-                </p>
-              </div>
-            </div> */}
+            {projectsStatus === "loading" && <div class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>}
          </div>
         </>
     )

@@ -16,7 +16,11 @@ const Reports = () => {
           <SideMenuBar />
           <div className='flex-grow-1 px-4 mt-5'>
             <h2 className="mt-2">Reports</h2>
-            <div className="row my-4">
+            {pendingReportLoading || closedTasksLoading || lastWeekReportLoading ? <div class="text-center m-5">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div> : <div className="row my-4">
           
           {!closedTasksError && closedTasksData && <div className="col-md-4 mb-3" >
                 <div className="card">
@@ -200,7 +204,7 @@ const Reports = () => {
     </div>
       </div>
           </div>}
-          </div>
+          </div>}  
           </div>
         </div>
     )

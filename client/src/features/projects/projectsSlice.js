@@ -22,7 +22,7 @@ const projectsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchProjects.pending, (state, action) => {
-            state.projectsStatus = "loading..."
+            state.projectsStatus = "loading"
         });
         builder.addCase(fetchProjects.fulfilled, (state, action) => {
             state.projectsStatus ="success";

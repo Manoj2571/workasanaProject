@@ -39,6 +39,12 @@ const TasksSection = () => {
 
          <NewTaskModal projectId={null}/>
 
+         {tasksStatus == "loading" && <div class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>}
+
          {/* mapping tasks to columns */}
          <div className="row">
             {tasksStatus == "success" && filteredTasks.map((task) => <div className="col-md-4 mb-3" key={task._id} onClick={() => navigate(`/tasks/${task._id}`)}>

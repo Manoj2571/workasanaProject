@@ -26,8 +26,14 @@ const TeamManagement = () => {
 
                 <NewTeamModal />
 
+                {teamsStatus == "loading" && <div class="text-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>}
+
                 <div className="row my-3">
-                    {teamsStatus && teams.map((team) => <div className="col-md-4 mb-3" key={team._id} onClick={() => navigate(`/teams/${team.name}`)}>
+                    {teamsStatus == "success" && teams.map((team) => <div className="col-md-4 mb-3" key={team._id} onClick={() => navigate(`/teams/${team.name}`)}>
                         <div className="card bg-light  border-0">
                             <div className="card-body m-1">
                                 <h5 className="card-title mb-3 fw-bold text-light-emphasis">{team.name}</h5>
