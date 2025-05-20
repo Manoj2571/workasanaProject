@@ -20,6 +20,10 @@ const tasksSlice = createSlice({
         updateTaskStatus: (state, action) => {
             const taskIndex = state.tasks.findIndex(task => task._id == action.payload._id)
             state.tasks[taskIndex].status = action.payload.status
+        },
+        updateTask: (state, action) => {
+            const taskIndex = state.tasks.findIndex(task => task._id == action.payload._id)
+            state.tasks[taskIndex] = action.payload
         }
     },
     extraReducers: (builder) => {
@@ -37,7 +41,7 @@ const tasksSlice = createSlice({
     }
 })
 
-export const {addNewTask, updateTaskStatus} = tasksSlice.actions
+export const {addNewTask, updateTaskStatus, updateTask} = tasksSlice.actions
 
 export const addNewTaskAsync = createAsyncThunk("/tasks/addNewTask", async (taskData, thunkAPI) => {
     try {
@@ -51,7 +55,7 @@ export const addNewTaskAsync = createAsyncThunk("/tasks/addNewTask", async (task
     }
 })
 
-export const updateTaskStatusAsync = createAsyncThunk("/tasks/updateTask", async (taskData, thunkAPI) => {
+export const updateTaskStatusAsync = createAsyncThunk("/tasks/updateTaskStatus", async (taskData, thunkAPI) => {
 
     const {taskId, status} = taskData
 
@@ -60,6 +64,29 @@ export const updateTaskStatusAsync = createAsyncThunk("/tasks/updateTask", async
 
         thunkAPI.dispatch(updateTaskStatus(response.data?.task))
 
+        return response.data?.message
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.message)
+    }
+})
+
+export const updateTaskAsync = createAsyncThunk("/tasks/updateTask", async (task, thunkAPI) => {
+    const {_id: taskId, createdAt, updatedAt, ...taskData} = task
+    try {
+        const response = await axios.post(`https://workasana-project-server.vercel.app/tasks/${taskId}`, taskData)
+
+        thunkAPI.dispatch(updateTask(response.data?.task))
+        return response.data?.message
+       
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.message)
+    }
+})
+
+export const deleteTaskAsync = createAsyncThunk("/tasks/deleteTask", async (taskData,thunkAPI) => {
+    const {taskId} = taskData
+    try {
+        const response = await axios.delete(`https://workasana-project-server.vercel.app/tasks/${taskId}`)
         return response.data?.message
     } catch (error) {
         return thunkAPI.rejectWithValue(error.response.data.message)

@@ -45,15 +45,15 @@ const NewTeamModal = () => {
 
 
     return (
-        <div class="modal fade" id="addNewTeam" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addNewTeamLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" style={{alignItems: "self-end"}}>
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="addNewTeamLabel">Create New Team</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div className="modal fade" id="addNewTeam" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="addNewTeamLabel" aria-hidden="true">
+  <div className="modal-dialog modal-dialog-centered" style={{alignItems: "self-end"}}>
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="addNewTeamLabel">Create New Team</h1>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <form onSubmit={handleSubmit}>
-      <div class="modal-body">
+      <div className="modal-body">
         <label htmlFor="teamNameInput" className="form-label fw-medium">Team Name</label>
         <input
           type="text"
@@ -79,8 +79,8 @@ const NewTeamModal = () => {
       ))}
 
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
         <button type="submit" className="btn btn-primary">
         Create
       </button>

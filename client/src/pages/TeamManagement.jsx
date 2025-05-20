@@ -19,16 +19,16 @@ const TeamManagement = () => {
                 <div className="d-flex align-items-center">
                 <h2 className="mt-2">Teams</h2>
                 <button className="ms-auto btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addNewTeam">
-                <i class="bi bi-plus"></i>
+                <i className="bi bi-plus"></i>
                 <span className="fw-medium ms-2">New Team</span>
                 </button>
                 </div>
 
                 <NewTeamModal />
 
-                {teamsStatus == "loading" && <div class="text-center">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+                {teamsStatus == "loading" && <div className="text-center">
+  <div className="spinner-border" role="status">
+    <span className="visually-hidden">Loading...</span>
   </div>
 </div>}
 

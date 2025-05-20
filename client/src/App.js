@@ -16,6 +16,7 @@ import TaskManagement from './pages/TaskManagement';
 import TeamForm from './pages/TeamForm';
 import TaskDetail from './pages/TaskDetail';
 import ProtectedRoute from './components/authentication/ProtectedRoute';
+import Settings from './pages/Settings';
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path='/login' element={<Login />}/>
           <Route path='/signIn' element={<SignIn />}/>
+          <Route path='/settings' element={<Settings />} />
           <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
           <Route path='/teams' element={<ProtectedRoute><TeamManagement /></ProtectedRoute>} />
           <Route path='/teams/:teamName' element={<ProtectedRoute><TeamDetail /></ProtectedRoute>} />

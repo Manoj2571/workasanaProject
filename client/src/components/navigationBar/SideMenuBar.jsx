@@ -45,10 +45,10 @@ const SideMenuBar = () => {
                             </Link>
                         </li>
                         <li className="nav-item text-secondary  my-2  py-sm-0">
-                            <a href="#" className="nav-link text-secondary" aria-current="page">
+                            <Link to="/settings" className="nav-link text-secondary" aria-current="page">
                                 <i className="bi bi-gear"></i>
                                 <span className="ms-2 d-none d-sm-inline">Setting</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>

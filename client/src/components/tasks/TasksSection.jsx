@@ -39,9 +39,9 @@ const TasksSection = () => {
 
          <NewTaskModal projectId={null}/>
 
-         {tasksStatus == "loading" && <div class="text-center">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+         {tasksStatus == "loading" && <div className="text-center">
+  <div className="spinner-border" role="status">
+    <span className="visually-hidden">Loading...</span>
   </div>
 </div>}
 

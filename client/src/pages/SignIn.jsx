@@ -67,8 +67,8 @@ const SignIn = () => {
             <label className="form-label">Password</label>
             <input type="password" placeholder="Password" className="form-control mb-1" onChange={passwordHandler} required/>
             <p className="text-body-tertiary small fw-medium">Must be 8 or more characters and contain at least 1 number and 1 special character.</p>
-            <button class="btn btn-primary w-100" type="submit" disabled={loading}>
-  {loading ? <span class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span> : <span role="status">Register</span>}
+            <button className="btn btn-primary w-100" type="submit" disabled={loading}>
+  {loading ? <span className="spinner-border spinner-border-sm me-2" aria-hidden="true"></span> : <span role="status">Register</span>}
   
 </button>
             </form>

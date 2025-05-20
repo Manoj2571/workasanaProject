@@ -17,7 +17,7 @@ const TeamDetail = () => {
         <SideMenuBar />
        <div className="flex-grow-1 px-4 mt-5">
         <div className="mt-3  mb-5 text-primary" onClick={() => navigate("/teams")} style={{cursor: "pointer"}}>
-        <i class="bi bi-arrow-left"></i>
+        <i className="bi bi-arrow-left"></i>
         <span className="ms-2 fw-medium">Back to Teams</span>
         </div>
 

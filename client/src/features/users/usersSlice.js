@@ -26,6 +26,10 @@ const usersSlice = createSlice({
         },
         addNewUser: (state, action) => {
             state.users = [...state.users, action.payload]
+        },
+        logoutUser: (state, action) => {
+            state.isUserLoggedIn = false
+            state.loggedInUser = {}
         }
     },
     extraReducers: (builder) => {
@@ -43,7 +47,7 @@ const usersSlice = createSlice({
       }
 })
 
-export const {setLoggedInUser, addNewUser} = usersSlice.actions
+export const {setLoggedInUser, addNewUser, logoutUser} = usersSlice.actions
 
 export const loginUserAsync = createAsyncThunk("/users/loginUser", async (userData, thunkAPI) => {
     try {

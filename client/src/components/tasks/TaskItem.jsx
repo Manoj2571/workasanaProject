@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 import { updateTaskStatusAsync } from "../../features/tasks/tasksSlice";
 import toast from "react-hot-toast";
 import getStatusRadioClassName from "../../utils/getStatusRadioClassName";
+import React from 'react';
 
 
 
@@ -42,17 +43,17 @@ const TaskItem = ({ task }) => {
                 <div className="text-dark-emphasis fw-medium">
                 <p className="mb-1">Team: {task.team.name}</p>
           <p className="mb-1">Project: {task.project.name}</p>
-          <p className="mb-1">
+          {task.tags.length > 0 ? <p className="mb-1">
             Tags: {task.tags.join(",")}
-          </p>
+          </p> : <p className="">No Tags found</p>}
           <p className="mb-0">Priority: <span className={`${getPriorityClassName(calculatePriority(task))} badge`}>{calculatePriority(task)}</span></p>
           </div >
-          {taskId && <div class="btn-group my-4" role="group" aria-label="Basic radio toggle button group">
+          {taskId && <div className="btn-group my-4" role="group" aria-label="Basic radio toggle button group">
   {statuses.map(status => 
-  <>
-    <input type="radio" class="btn-check" name="btnradio" id={status} autocomplete="off" value={status} checked={currentStatus == status} onChange={handleChangeStatus}/>
-    <label className={`btn ${getStatusRadioClassName(status)}`} for={status} >{status}</label>
-  </>)}
+  <React.Fragment key={status}>
+    <input type="radio" className="btn-check" name="btnradio" id={status} autoComplete="off" value={status} checked={currentStatus == status} onChange={handleChangeStatus}/>
+    <label className={`btn ${getStatusRadioClassName(status)}`} htmlFor={status} >{status}</label>
+  </React.Fragment>)}
 </div>}
           </>
     );

@@ -39,7 +39,7 @@ const ProjectManagement = () => {
                     <option>Filter</option>
                 </select>
                 <button className="btn btn-primary btn-sm" data-bs-target="#addNewTask" data-bs-toggle="modal">
-                <i class="bi bi-plus"></i>
+                <i className="bi bi-plus"></i>
                 <span className="fw-medium ms-2">New Task</span>
                 </button>
                 </div>
@@ -65,11 +65,11 @@ const ProjectManagement = () => {
       <td>
         <AvatarGenerator people={task.owners} num={3} size={29}/>
       </td>
-      <td><div className={`badge ${getPriorityClassName(calculatePriority(task))} rounded-pill fw-medium ms-2`}><i class="bi bi-flag small me-1"></i>{calculatePriority(task)}</div></td>
+      <td><div className={`badge ${getPriorityClassName(calculatePriority(task))} rounded-pill fw-medium ms-2`}><i className="bi bi-flag small me-1"></i>{calculatePriority(task)}</div></td>
       <td><span className="ms-2 fw-bold small">{getDueDate(task.createdAt, task.timeToComplete)}</span></td>
       <td><div className={`badge ${getStatusClassName(task.status)} rounded fw-medium ms-2`}>{task.status}</div></td>
       <td>
-        <i class="bi bi-arrow-right-short"></i>
+        <i className="bi bi-arrow-right-short"></i>
       </td>
     </tr>)}
   </tbody>
@@ -78,7 +78,7 @@ const ProjectManagement = () => {
 
             {/* table */}
 
-            {/* <div class="border rounded-top overflow-hidden">
+            {/* <div className="border rounded-top overflow-hidden">
             <table className="table table-hover table-bordered m-0 align-middle">
   <thead className="table-primary border">
     <tr className="">
@@ -96,31 +96,31 @@ const ProjectManagement = () => {
       <td>
         <AvatarGenerator people={arr} num={3} size={29}/>
       </td>
-      <td><div className="badge bg-danger-subtle text-danger rounded-pill fw-medium ms-2"><i class="bi bi-flag small me-1"></i>High</div></td>
+      <td><div className="badge bg-danger-subtle text-danger rounded-pill fw-medium ms-2"><i className="bi bi-flag small me-1"></i>High</div></td>
       <td><span className="ms-2 fw-bold small">20 Dec, 2024</span></td>
       <td><div className="badge bg-success-subtle text-success rounded fw-medium ms-2">Completed</div></td>
       <td>
-        <i class="bi bi-arrow-right-short"></i>
+        <i className="bi bi-arrow-right-short"></i>
       </td>
     </tr>
     <tr>
     <td className="fw-medium">Create File Feature</td>
     <td><AvatarGenerator people={[{id: 2, name: "Manoj"}]} num={3} size={29}/></td>
-    <td><div className="badge bg-light text-body-tertiary rounded-pill fw-medium ms-2"><i class="bi bi-flag small me-1"></i>Low</div></td>
+    <td><div className="badge bg-light text-body-tertiary rounded-pill fw-medium ms-2"><i className="bi bi-flag small me-1"></i>Low</div></td>
     <td><span className="ms-2 fw-bold small">20 Dec, 2024</span></td>
     <td><div className="badge bg-warning-subtle text-warning rounded fw-medium ms-2">In Progress</div></td>
       <td>
-        <i class="bi bi-arrow-right-short"></i>
+        <i className="bi bi-arrow-right-short"></i>
       </td>
     </tr>
     <tr>
     <td className="fw-medium">Create File Feature</td>
     <td><AvatarGenerator people={arr} num={2} size={29}/></td>
-    <td><div className="badge rounded-pill text-indigo bg-indigo fw-medium ms-2" ><i class="bi bi-flag small me-1"></i>Medium</div></td>
+    <td><div className="badge rounded-pill text-indigo bg-indigo fw-medium ms-2" ><i className="bi bi-flag small me-1"></i>Medium</div></td>
     <td><span className="ms-2 fw-bold small">20 Dec, 2024</span></td>
     <td><div className="badge bg-warning-subtle text-warning rounded fw-medium ms-2">In Progress</div></td>
       <td>
-        <i class="bi bi-arrow-right-short"></i>
+        <i className="bi bi-arrow-right-short"></i>
       </td>
     </tr>
   </tbody>

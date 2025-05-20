@@ -32,7 +32,6 @@ const Dashboard = () => {
             <TasksSection />
           </div>
         </div>
-        
       );
 }
 

@@ -217,7 +217,10 @@ app.get("/tasks", async (req, res) => {
 //Update Task
 app.post("/tasks/:id", async (req, res) => {
     try {
-        const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        const updatedTask = await Task.findByIdAndUpdate(req.params.id, req.body, {new: true}).populate('owners', 'name')
+    .populate('team', 'name')
+    .populate('project', 'name')
+    .populate('tags', 'name');
         res.status(201).json({message: "Task updated successfully", task: updatedTask})
     } catch (error) {
         console.log(error)
@@ -377,14 +380,6 @@ app.get("/report/pending", async (req, res) => {
     }
 })
 
-// app.get("/report/pending", async (req, res) => {
-//     try {
-//         const tasks = await Task.find({status: {$ne: "Completed"}})
-
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })
 
 //closed tasks report
 app.get("/report/closed-tasks", async (req, res) => {
