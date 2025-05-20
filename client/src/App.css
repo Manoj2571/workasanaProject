@@ -17,3 +17,13 @@ body {
   color: #6610f2 !important;
 }
 
+.password-input {
+  outline: none;
+  width: 100%;
+}
+
+.password-input::-ms-reveal,
+.password-input::-ms-clear {
+  display: none;
+}
+

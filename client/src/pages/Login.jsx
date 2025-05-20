@@ -14,6 +14,7 @@ const Login = () => {
     })
 
     const [loading, setLoading] = useState(false)
+    const [showPassword, setShowPassword] = useState(false);
 
     const {isUserLoggedIn} = useSelector((state) => state.users)
 
@@ -30,7 +31,6 @@ const Login = () => {
         .finally(() => setLoading(false))
     }
 
-
     return (
         <>
             <div className="container-fluid col-md-4 d-flex flex-column align-items-center px-lg-5 px-3 pt-5">
@@ -38,10 +38,24 @@ const Login = () => {
             <h3>Log in to your account</h3>
             <p className="text-body-tertiary small fw-medium">Please enter your details</p>
             <form className="mt-3 w-100" onSubmit={handleLogin}>
-            <label className="form-label fst-normal">Email</label>
-            <input type="email" placeholder="Enter your email" className="form-control mb-3" onChange={(e) => setUser({...user, email: e.target.value})} required/>
-            <label className="form-label">Password</label>
-            <input type="password" placeholder="Password" className="form-control mb-1" onChange={(e) => setUser({...user, password: e.target.value})} required/>
+            <label className="form-label fst-normal" htmlFor="emailInput">Email</label>
+            <input type="email" placeholder="Enter your email" id="emailInput" className="form-control mb-3" onChange={(e) => setUser({...user, email: e.target.value})} required/>
+            <label className="form-label" htmlFor="passwordInput">Password</label>
+            <div className="form-control d-flex align-items-center justify-content-between mb-1" >
+      <input
+        type={showPassword ? 'text' : 'password'}
+        className="password-input border-0"
+        placeholder="Password"
+        id="passwordInput"
+        onChange={(e) => setUser({...user, password: e.target.value})} required
+      />
+      <span
+        type="button"
+        onClick={() => setShowPassword(prev => !prev)}
+      >
+        {showPassword ? <i className="bi bi-eye"></i> : <i className="bi bi-eye-slash"></i>}
+      </span>
+    </div>
             <button className="btn btn-primary w-100 my-3" type="submit" disabled={loading}>
   {loading ? <span className="spinner-border spinner-border-sm me-2" aria-hidden="true"></span> : <span role="status">Sign In</span>}
 </button>
